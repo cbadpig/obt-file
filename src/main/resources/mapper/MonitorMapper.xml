@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyt.obt.file.mapper.MonitorMapper">
+
+    <insert id="insertMonitor" parameterType="com.hyt.obt.file.entity.Monitor" >
+        insert into t_ks_monitor (ksxxdm,kcdm,kspcbh,filepath,filetype,exceptiontype,uploadtime)
+        values (
+            #{ksxxdm,jdbcType=VARCHAR},#{kcdm,jdbcType=VARCHAR}, #{kspcbh,jdbcType=VARCHAR},
+            #{filePath,jdbcType=VARCHAR},#{fileType,jdbcType=VARCHAR},#{exceptionType,jdbcType=VARCHAR},#{uploadTime,jdbcType=VARCHAR})
+    </insert>
+
+
+    <select id="selectFirstKsMonitor" resultType="java.lang.String" >
+        select filepath from t_ks_monitor
+        where ksxxdm=#{ksxxdm} and kcdm=#{kcdm} and kspcbh=#{kspcbh} and filepath is not null and filepath != ''
+        order by uploadtime asc
+        limit 1
+    </select>
+
+</mapper>

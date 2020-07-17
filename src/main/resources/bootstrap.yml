@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ogtsc-service-file
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+#      config:
+#        server-addr: 47.115.94.67:8848
+#        file-extension: yml
+#        namespace: 5052849e-9a66-4823-85c3-6d5e0d135c4a
+#        group: ogtsc-service-ms-local
+      discovery:
+        server-addr: 47.115.94.67:8848
+        namespace: 5052849e-9a66-4823-85c3-6d5e0d135c4a
+        group: ogtsc-service-ms-local
+  
